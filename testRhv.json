@@ -1,0 +1,17 @@
+{
+  "Testname": "RHV basic",
+  "Description": "Basic migration test for RHV",
+  "Instance": {
+    "TYPE": "RHV",
+    "V2V_INSTANCE_API_URL": "https://10-37-140-88.rhev.lab.eng.brq.redhat.com",
+    "V2V_INSTANCE_PORT": "8443",
+    "V2V_INSTANCE_USERNAME": "admin@internal",
+    "V2V_INSTANCE_PASSWORD": "123456",
+    "V2V_INSTANCE_CA_CERT": "/home/igor/ondra.cert",
+    "V2V_INSTANCE_CLUSTER": "local"
+  },
+  "STORAGE_CLASS": "ocs-storagecluster-cephfs",
+  "NO_HEADLESS": "true",
+  "Test": "packages/kubevirt-plugin/integration-tests/v2v/rhv/v2v.rhv.import.scenario.ts\"",
+  "params.openshift": "true"
+}
