@@ -1,0 +1,15 @@
+{
+  "Testname": "Vmware basic",
+  "Description": "Basic migration from VMWare to CNV using 10.8.58.136 (QE) as VMWare host",
+  "Instance": {
+    "TYPE": "VMWARE",
+    "V2V_VMWARE_INSTANCE_API_URL": "10.8.58.136",
+    "V2V_VMWARE_INSTANCE_USERNAME": "administrator@vsphere.local",
+    "V2V_VMWARE_INSTANCE_PASSWORD": "Tux4Linux!"
+  },
+  "STORAGE_CLASS": "ocs-storagecluster-ceph-rbd",
+  "VOLUME_MODE": "Block",
+  "NO_HEADLESS": "true",
+  "Test": "packages/kubevirt-plugin/integration-tests/v2v/vmware/v2v.vmware.basic.import.scenario.ts\"",
+  "params.openshift": "true"
+}

@@ -10,6 +10,7 @@ class Test(object):
         self.name = json_current_test['Testname']
         self.description = json_current_test['Description']
         self.storage_class = json_current_test['STORAGE_CLASS']
+        self.volume_mode = json_current_test['VOLUME_MODE']
         self.no_headless = json_current_test['NO_HEADLESS']
         self.test = json_current_test['Test']
         self.params_openshift = json_current_test['params.openshift']
@@ -17,11 +18,13 @@ class Test(object):
         self.instance_str = self.instance.get_str()
 
     def get_str(self):
-        cli_str = self.instance_str + \
-              const.STORAGE + self.storage_class + \
-              const.NO_HEADLESS + self.no_headless + \
-              const.YARN + self.test + \
-              const.PARAM_OCP + " " + self.params_openshift
+        cli_str = self.description + "\n" + \
+                  self.instance_str + \
+                  const.STORAGE + self.storage_class + \
+                  const.VOLUME + self.volume_mode + \
+                  const.NO_HEADLESS + self.no_headless + \
+                  const.YARN + self.test + \
+                  const.PARAM_OCP + " " + self.params_openshift
         return cli_str
 
     @staticmethod

@@ -1,0 +1,18 @@
+{
+  "Testname": "RHV basic",
+  "Description": "Negative migration test for RHV, wrong names for VM, nic and disk",
+  "Instance": {
+    "TYPE": "RHV",
+    "V2V_RHV_INSTANCE_API_URL": "https://rhev-blue-01.rdu2.scalelab.redhat.com",
+    "V2V_RHV_INSTANCE_PORT": "443",
+    "V2V_RHV_INSTANCE_USERNAME": "admin@internal",
+    "V2V_RHV_INSTANCE_PASSWORD": "qum5net",
+    "V2V_RHV_INSTANCE_CA_CERT": "/home/igor/ca.cert",
+    "V2V_RHV_INSTANCE_CLUSTER": "iscsi"
+  },
+  "STORAGE_CLASS": "nfs",
+  "VOLUME_MODE": "filesystem",
+  "NO_HEADLESS": "true",
+  "Test": "packages/kubevirt-plugin/integration-tests/v2v/rhv/v2v.rhv.import.incorrect.names.negative.scenario.ts\"",
+  "params.openshift": "true"
+}

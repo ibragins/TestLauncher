@@ -1,6 +1,6 @@
 {
   "Testname": "Vmware basic",
-  "Description": "Basic migration from VMWare to CNV using 10.8.58.136 as VMWare host",
+  "Description": "Negative tests - wrong VM name, NIC name and disk name - Migration from VMWare to CNV using 10.8.58.136 as VMWare host",
   "Instance": {
     "TYPE": "VMWARE",
     "V2V_INSTANCE_HOSTNAME": "10.8.58.136",
@@ -8,7 +8,8 @@
     "V2V_INSTANCE_PASSWORD": "Tux4Linux!"
   },
   "STORAGE_CLASS": "nfs",
+  "VOLUME_MODE": "filesystem",
   "NO_HEADLESS": "true",
-  "Test": "packages/kubevirt-plugin/integration-tests/v2v/vmware/v2v.import.scenario.ts\"",
+  "Test": "packages/kubevirt-plugin/integration-tests/v2v/vmware/v2v.vmware.import.incorrect.names.negative.scenario.ts\"",
   "params.openshift": "true"
 }
