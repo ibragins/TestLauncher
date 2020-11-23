@@ -18,8 +18,15 @@ class Test(object):
         self.instance_str = self.instance.get_str()
 
     def get_str(self):
-        cli_str = self.description + "\n" + \
-                  self.instance_str + \
+        full_str = self.get_descr_str() + self.get_cli_str()
+        return full_str
+
+    def get_descr_str(self):
+        descr_str = self.description + "\n"
+        return descr_str
+
+    def get_cli_str(self):
+        cli_str = self.instance_str + \
                   const.STORAGE + self.storage_class + \
                   const.VOLUME + self.volume_mode + \
                   const.NO_HEADLESS + self.no_headless + \
