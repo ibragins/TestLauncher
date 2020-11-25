@@ -24,6 +24,13 @@ class LauncherUi(object):
                                       fg='black',
                                       command=lambda: self.generate())
 
+        self.btn_advanced = Tk.Button(text='Advanced settings',
+                                      width=10,
+                                      height=1,
+                                      bg='gray',
+                                      fg='black',
+                                      command=lambda: self.generate())
+
         self.lbl_description = Tk.Label(text='',
                                         width=80,
                                         height=4
