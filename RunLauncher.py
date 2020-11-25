@@ -6,50 +6,15 @@ import argparse
 from dnf.pycomp import raw_input
 
 from model.test import Test
-from utils.utils import get_data_from_json
-
+from ui.launcher_ui import LauncherUi
 import tkinter as tk
-from tkinter import filedialog
-
-window = tk.Tk()
-button = tk.Button(text='Open',
-                   width=10,
-                   height=1,
-                   bg='gray',
-                   fg='black',
-                   command=lambda: openfile())
-
-lbl_description = tk.Label(text='',
-                           # foreground="white",
-                           # background="black",
-                           width=80,
-                           height=4
-                           )
-
-
-text_box = tk.Text(width=80, height=8, relief=tk.FLAT, borderwidth=0)
-
-
-def openfile():
-    filenames = filedialog.askopenfiles(mode='r', filetypes=[('JSON Files', '*.json')])
-    for filename in filenames:
-        if filename is not None:
-            name = filename.name
-            file_list.append(name)
-            # print(name)
-
-    for file in file_list:
-        json_obj = get_data_from_json(file)
-        test = Test(json_obj)
-        print(test.get_str())
-        lbl_description["text"] = ''.join(test.get_descr_str())
-        text_box.insert(tk.END, test.get_cli_str())
+from utils.utils import get_data_from_json
 
 
 def run_ui():
-    button.pack()
-    lbl_description.pack()
-    text_box.pack()
+    window = tk.Tk()
+    window.geometry('800x300')
+    app = LauncherUi(window)
     window.mainloop()
 
 
@@ -94,22 +59,20 @@ if __name__ == "__main__":
     args = parser.parse_args()
     file_list = []
 
-    # print(args.filename)
-
     # conf_file = "launcher.conf"  # os.path.join(str(Path.home()), "totp/.token.config")
     # if not os.path.isfile(conf_file):
     #     print("%s is missing" % conf_file)
     #     sys.exit(1)
     # config = ConfigObj(conf_file)
 
-    if args.filename:
+    if args.filename and args.ui == 'text':
         file_list = add_file(args.filename)
-    elif args.ui:
+        for file in file_list:
+            json_obj = get_data_from_json(file)
+            test = Test(json_obj)
+            print(test.get_str())
+    elif not args.ui:
         run_ui()
     else:
         file_list = input_file()
 
-    # for file in file_list:
-    #     json_obj = get_data_from_json(file)
-    #     test = Test(json_obj)
-    #     print(test.get_str())

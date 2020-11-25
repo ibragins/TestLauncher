@@ -31,7 +31,7 @@ class Test(object):
                   const.VOLUME + self.volume_mode + \
                   const.NO_HEADLESS + self.no_headless + \
                   const.YARN + self.test + \
-                  const.PARAM_OCP + " " + self.params_openshift
+                  const.PARAM_OCP + " " + self.params_openshift + "\n"
         return cli_str
 
     @staticmethod
